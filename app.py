@@ -8,7 +8,7 @@ from tkinter import *
 import cv2, sys, numpy, os
 import pandas as pd
 from csv import *
-
+dir_path = os.path.dirname(os.path.realpath(__name__))
 def recognize_face():
 
     frame = ttk.Frame()
@@ -17,8 +17,8 @@ def recognize_face():
     frame.columnconfigure(0, weight=1)
     frame.columnconfigure(0, weight=3)
     size = 4
-    haar_file = r'D:\PBL2\phase_2\haarcascade_frontalface_default.xml'
-    datasets = r'D:\PBL2\phase_2\dataset'
+    haar_file = os.path.join(dir_path,"haarcascade_frontalface_default.xml")
+    datasets = os.path.join(dir_path, "dataset")
 
     # Part 1: Create fisherRecognizer
     print('Recognizing Face Please Be in sufficient Lights...')
@@ -85,8 +85,8 @@ def recognize_face():
 
 
 def  create_data(names):
-    haar_file = r'D:\PBL2\phase_2\haarcascade_frontalface_default.xml'
-    datasets = r'D:\PBL2\phase_2\dataset'
+    haar_file = os.path.join(dir_path,"haarcascade_frontalface_default.xml")
+    datasets = os.path.join(dir_path, "dataset")
     sub_data = names
 
     path = os.path.join(datasets, sub_data)
